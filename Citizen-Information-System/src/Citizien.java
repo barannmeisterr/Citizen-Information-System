@@ -61,6 +61,9 @@ this.phoneNumbers = new HashSet<>();
 this.address= new HashSet<>();
 }
 public Citizien(String relation,int id ,String tc,String name,String surname,String birthDate,String city,String county,String motherName,String motherTc,String fatherName,String fatherTc,String nationality) {
+/*
+this constructor is for family connections.
+*/	
 	this.relation=relation;
 	this.id=id;
 	this.tc=tc;
