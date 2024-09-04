@@ -43,6 +43,7 @@ HashSet<String> phoneNumbers;
 HashSet<String> address;
 int id;
 public Citizien(int id ,String tc,String name,String surname,String birthDate,String city,String county,String motherName,String motherTc,String fatherName,String fatherTc,String nationality) {
+//this constructor is for citizien's informations.
 	this.id=id;
 	this.tc=tc;
 	this.name=name;
@@ -62,7 +63,7 @@ this.address= new HashSet<>();
 }
 public Citizien(String relation,int id ,String tc,String name,String surname,String birthDate,String city,String county,String motherName,String motherTc,String fatherName,String fatherTc,String nationality) {
 /*
-this constructor is for family connections.
+this constructor is for citizien's family connections.
 */	
 	this.relation=relation;
 	this.id=id;
@@ -107,6 +108,9 @@ public void setFamily(List<Citizien> family) {
 	this.family = family;
 }
 public void addFamilyMember(Citizien familyMember) {
+//----------------------------------------------------------------------------
+//Summary:adds family member to the list from citizenDatabase database.
+//-----------------------------------------------------------------------------	
 	if(familyMember==null) {
 		return;
 		
@@ -114,19 +118,31 @@ public void addFamilyMember(Citizien familyMember) {
 family.add(familyMember);
 }
 public void addPhoneNumber(String phoneNumber) {
+//----------------------------------------------------------------------------
+//Summary:adds gsm number to the set if a phone number is found.hashset is used to remove duplicates
+//-----------------------------------------------------------------------------	
+	
 	if(phoneNumber==null) {
 		return;
 	}
 phoneNumbers.add(phoneNumber);
 }
 public void addAddress(String adres) {
+//----------------------------------------------------------------------------
+//Summary:adds adress  to the set if a current living address  is found.hashset is used to remove duplicates
+//-----------------------------------------------------------------------------	
+	
 	if(adres==null) {
 		return;
 	}
 address.add(adres);
 }
 public static Citizien getCitizenByTc(String tcNo) throws SQLException {
-    Connection connection = DatabaseConnection.getConnectionTocitizienDatabase(); 
+//----------------------------------------------------------------------------
+//Summary:searches citizien from citizienDatabase and returns that citizien if is found.
+//-----------------------------------------------------------------------------	
+	
+	Connection connection = DatabaseConnection.getConnectionTocitizienDatabase(); 
     PreparedStatement statement = null;
     ResultSet resultSet = null;
 
@@ -172,6 +188,12 @@ public static Citizien getCitizenByTc(String tcNo) throws SQLException {
     }
 }
 public void findAdresses() throws SQLException{
+//----------------------------------------------------------------------------
+//Summary:finds citizien's current living adress from datam database and adds found adressed to the set.
+
+//-----------------------------------------------------------------------------		
+	
+	
 	String tckn = getTc();
 	Connection connection=DatabaseConnection.getConnectionToAddress();
 	PreparedStatement statement = null;
@@ -202,6 +224,11 @@ public void findAdresses() throws SQLException{
 	    }
 }
 public void findPhoneNumbers() throws SQLException{
+//----------------------------------------------------------------------------
+//Summary:finds citizien's gsm numbers from gsm database and adds found gsm numbers to the set.
+
+//-----------------------------------------------------------------------------		
+	
 	String tcNo = getTc();
 	Connection connection = DatabaseConnection.getConnectionToGsm(); 
     PreparedStatement statement = null;
@@ -234,6 +261,14 @@ public void findPhoneNumbers() throws SQLException{
  
 }
 public void findFamilyMembers() throws SQLException {
+/*	
+Summary:
+This SQL script is designed to retrieve detailed family information for a specific individual based on their TC number (a unique identifier in Turkey). 
+The code uses multiple Common Table Expressions (CTEs) to first identify the individual's immediate family members and then expand to grandparents, aunts, uncles,
+and cousins. 
+ 
+	
+*/	
 	String tcNo = getTc();
 	Connection connection = DatabaseConnection.getConnectionTocitizienDatabase(); 
     PreparedStatement statement = null;
