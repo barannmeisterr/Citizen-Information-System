@@ -2,9 +2,9 @@
 
 ## Project Description
 
-The Citizen Information System is a comprehensive application designed to manage and retrieve detailed information about citizens residing in Turkey. This system encapsulates a citizen's personal information, family relationships, contact details, and address records. It integrates seamlessly with multiple databases to gather and present a unified view of a citizen's identity and familial connections.
+The Citizen Information System is a comprehensive institutional application designed to manage and retrieve detailed information about citizens residing in Turkey. This system encapsulates a citizen's personal information, family relationships, contact details, and address records. It integrates seamlessly with multiple databases to gather and present a unified view of a citizen's identity and familial connections.
 
-The application is built using Java and is designed to provide a user-friendly graphical user interface (GUI) that allows users to easily search for citizens, view their family members, and access their contact information. The system ensures secure and efficient handling of sensitive data while maintaining the integrity and consistency of the information retrieved from various databases.
+The application is built using Java and is designed to provide a user-friendly graphical user interface (GUI) for institutional enterprises that allows users to easily search for citizens, view their family members, and access their contact information. The system ensures secure and efficient handling of sensitive data while maintaining the integrity and consistency of the information retrieved from various databases.
 
 ## Author
 
